@@ -5,6 +5,8 @@ import Home from '../screens/Home'
 import List from '../screens/Detail'
 import Local from '../screens/Local'
 import Setting from '../screens/Profile'
+import Request from '../screens/Request'
+import Detail from '../screens/Detail'
 import {Image} from 'react-native'
 
 const Tab = createBottomTabNavigator();
@@ -35,10 +37,10 @@ const BottomTabNavigator = () => {
                 }}
             />
              <Tab.Screen
-                name="Map"
-                component={List}
+                name="Detail"
+                component={Detail}
                 options={{
-                    tabBarLabel:"List",
+                    tabBarLabel:"Detail",
                     tabBarIcon:({color, size}) => (
                         <Image
                         
@@ -82,6 +84,7 @@ const BottomTabNavigator = () => {
 
 
 const Stack = createStackNavigator();
+
 const screenOptionStyle = {
     headerShown: false
 }
@@ -90,7 +93,8 @@ const HomeStackNavigator = () => {
     return(
         <Stack.Navigator screenOptions={screenOptionStyle}>
             <Stack.Screen name="Home" component={BottomTabNavigator}/>
-            {/* <Stack.Screen name="Detail" component={Detail}/> */}
+            <Stack.Screen name="Detail" component={Detail}/>
+            <Stack.Screen name="Request" component={Request}/>
         </Stack.Navigator>
     )
 }
