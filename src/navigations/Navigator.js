@@ -8,6 +8,7 @@ import Setting from '../screens/Profile'
 import Request from '../screens/Request'
 import Detail from '../screens/Detail'
 import {Image} from 'react-native'
+import FulfillRequest from '../screens/FulfillRequest'
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -95,6 +96,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="Home" component={BottomTabNavigator}/>
             <Stack.Screen name="Detail" component={Detail}/>
             <Stack.Screen name="Request" component={Request}/>
+            <Stack.Screen name="FulfillRequest" component={FulfillRequest}/>
         </Stack.Navigator>
     )
 }

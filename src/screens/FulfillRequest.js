@@ -5,14 +5,14 @@ import ModalDropdown from 'react-native-modal-dropdown'
 
 
 
-const Request = () => {
-    const [heading, setHeading] = useState("");
-    const [description, setDescription] = useState("");
-    const [zipCode, setZipCode] = useState("");
-    const [paymentMethod, setPayment] = useState("");
-    const [ugrencyLevel, setUrgency] = useState("");
+const FulfillRequest = () => {
+    const [name, setName] = useState("");
+    const [information, setInformation] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [fulfillment, setFulfillment] = useState("");
+    const [availability, setAvailability] = useState("");
 
-    const paymentOptions = ['Venmo', 'Paypal', 'Cashapp']
+    const fulfillmentOptions = ['Venmo', 'Paypal', 'Cashapp']
     const urgencyOptions = ['Low', 'Medium', 'High']
 
 
@@ -25,41 +25,40 @@ const Request = () => {
       />
       <Text style={styles.header}>Fill out all required sections to fulfill Aid Request</Text>
 
-    
-            <TextInput
+      <TextInput
               style={styles.TextInput}
-              placeholder="Heading * 0/140"
+              placeholder="Full Name [First Last] *"
               placeholderTextColor="grey"
               secureTextEntry={true}
-              onChangeText={(heading) => setHeading(heading)}
+              onChangeText={(name) => setName(name)}
             />
             <TextInput
               style={styles.descriptionInput}
-              placeholder="Description*"
+              placeholder="Information / Custom Message"
               placeholderTextColor="grey"
               secureTextEntry={true}
-              onChangeText={(description) => setDescription(description)}
+              onChangeText={(information) => setInformation(information)}
             />
             <TextInput
               style={styles.TextInput}
-              placeholder="Zipcode"
+              placeholder="Phone (555) 555-5555"
               placeholderTextColor="grey"
               secureTextEntry={true}
-              onChangeText={(zipCode) => setZipCode(zipCode)}
+              onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
             />
            
 
-           <ModalDropdown options={paymentOptions} 
+           <ModalDropdown options={fulfillmentOptions} 
               style={styles.TextInput}
-              defaultValue="Select Payment Method..."
-              onSelect={(paymentMethod) => setPayment(String(paymentOptions[paymentMethod]))}
+              defaultValue="Type of Fulfillment..."
+              onSelect={(fulfillment) => setFulfillment(String(fulfillmentOptions[fulfillment]))}
            />
 
-           <ModalDropdown options={urgencyOptions} 
+            <ModalDropdown options={['Now', 'Later']} 
               style={styles.TextInput}
-              onSelect={(urgencyLevel) => setUrgency(String(urgencyOptions[urgencyLevel]))}
-              defaultValue="Select Urgency Scale..."
-           />
+              defaultValue="Availability..."
+              //onSelect={(availability) => setFulfillment(String(fulfillmentOptions[availability]))}
+           />   
 
             <TouchableOpacity style={styles.loginBtn}>
               <Text style={styles.loginText}>Complete</Text>
@@ -134,4 +133,4 @@ const styles = StyleSheet.create({
       },
 });
 
-export default Request;
+export default FulfillRequest;

@@ -15,7 +15,7 @@ const Detail = ({navigation}) => {
         style={styles.fab}
         small
         icon="plus"
-        onPress={() => navigation.navigate('Request')}
+        onPress={() => navigation.navigate('FulfillRequest')}
      />
      </View>
 
