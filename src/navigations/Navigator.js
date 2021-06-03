@@ -5,6 +5,8 @@ import Home from '../screens/Home'
 import List from '../screens/Detail'
 import Local from '../screens/Local'
 import Setting from '../screens/Profile'
+import Project from '../screens/Project'
+import Apply from '../screens/Apply'
 import {Image} from 'react-native'
 
 const Tab = createBottomTabNavigator();
@@ -90,7 +92,8 @@ const HomeStackNavigator = () => {
     return(
         <Stack.Navigator screenOptions={screenOptionStyle}>
             <Stack.Screen name="Home" component={BottomTabNavigator}/>
-            {/* <Stack.Screen name="Detail" component={Detail}/> */}
+            <Stack.Screen name="Project" component={Project}/>
+            <Stack.Screen name="Apply" component={Apply}/>
         </Stack.Navigator>
     )
 }
