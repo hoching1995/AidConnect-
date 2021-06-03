@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import * as React from 'react'
-import {View, Text,Image, StyleSheet} from 'react-native'
-import SwiperComponent from '../components/SwiperComponent'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { FAB } from 'react-native-paper'
-
-
-
-const Detail = ({navigation}) => {
-    return(
-     <View style={styles.container}>
-       <Text>This is list </Text>
-
-       <FAB 
-        style={styles.fab}
-        small
-        icon="plus"
-        onPress={() => navigation.navigate('FulfillRequest')}
-     />
-=======
 import React from 'react'
 import {View, Text,Image, StyleSheet,Dimensions} from 'react-native'
 import SwiperComponent from '../components/SwiperComponent'
@@ -169,9 +148,7 @@ const Detail = ({navigation}) => {
         </View>
       </View>
     </ScrollView>
->>>>>>> 462a5aeacfb3631652cd3a6f4d6715158b40f06e
      </View>
-
    );
    
 }
@@ -212,13 +189,6 @@ const styles = StyleSheet.create({
       marginBottom: 40,
       width:"70%",
       height:"20%"
-    },
-
-    fab: {
-      position: 'absolute',
-      margin: 16,
-      right: 0,
-      bottom: 0,
     },
    
     inputView: {
