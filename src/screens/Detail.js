@@ -9,6 +9,18 @@ import {
 const windowWidth = Dimensions.get("window").width;
 const windowHight = Dimensions.get("window").height;
 const Detail = ({navigation}) => {
+  state = {
+    markers: [],
+    coordinates: [
+      { name: 'Bellingham Food Bank', type:'Community ORG',latitude: 48.75533881391072, longitude: -122.47153346668237,  image: require('../images/logo_bfb.png') },
+      { name: 'Habitat for Humanity in Whatcom County', type:'Community ORG', latitude: 48.755123532054434, longitude: -122.47572655214361, image: require('../images/WhatcomCounty.png') },
+      { name: 'Western Washington University', type:'Educational ORG', latitude: 48.734365517589175,longitude: -122.48668540371054,  image: require('../images/wwu.png')  },
+      { name: 'Bellingham Vet Center', type:'Gov ORG', latitude: 48.73396954510261, longitude: -122.46544124658645,  image: require('../images/VA.png') },
+      { name: 'BECU credit union',type:'Bank ORG',latitude: 48.755328677915685, longitude: -122.47619861903614,    image: require('../images/BECU.png') },
+      { name: 'Young Life-Bellingham', type:'Community ORG', latitude: 48.75099338782577, longitude: -122.48043141000632,  image: require('../images/YL.png') },
+  
+    ]
+  }
     return(
      <View style={styles.container}>
       
@@ -30,18 +42,22 @@ const Detail = ({navigation}) => {
       showsHorizontalScrollIndicator={false}
       style={{ paddingTop:20 }}
     >
+      {
+            state.coordinates.map((item, index) => (
+              
       <TouchableOpacity
+      key={index}
       onPress={() =>
-        navigation.navigate("Project")
+        navigation.navigate("Project",{item})
       }>
       <View style={styles.home_company_list}>
         <View style={{margin:10,flexDirection: "row",}}>
         <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
+        style={{height: 75, width:80,resizeMode:'contain',backgroundColor:'lightgrey'}}
+        source={item.image}></Image>
         <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
+        <Text style={{ fontSize:18,}}>{item.name}</Text>
+        <Text style={{ fontSize:10,}}>{item.org}</Text>
         <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
         </View>
         </View>        
@@ -49,104 +65,10 @@ const Detail = ({navigation}) => {
         </View>
       </View>
       </TouchableOpacity>
-      <View style={styles.home_company_list}>
-        <View style={{margin:10,flexDirection: "row",}}>
-        <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
-        <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
-        <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
-        </View>
-        </View>        
-        <View>      
-        </View>
-      </View>
-      <View style={styles.home_company_list}>
-        <View style={{margin:10,flexDirection: "row",}}>
-        <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
-        <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
-        <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
-        </View>
-        </View>        
-        <View>      
-        </View>
-      </View>
-      <View style={styles.home_company_list}>
-        <View style={{margin:10,flexDirection: "row",}}>
-        <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
-        <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
-        <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
-        </View>
-        </View>        
-        <View>      
-        </View>
-      </View>
-      <View style={styles.home_company_list}>
-        <View style={{margin:10,flexDirection: "row",}}>
-        <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
-        <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
-        <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
-        </View>
-        </View>        
-        <View>      
-        </View>
-      </View>
-      <View style={styles.home_company_list}>
-        <View style={{margin:10,flexDirection: "row",}}>
-        <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
-        <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
-        <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
-        </View>
-        </View>        
-        <View>      
-        </View>
-      </View>
-      <View style={styles.home_company_list}>
-        <View style={{margin:10,flexDirection: "row",}}>
-        <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
-        <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
-        <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
-        </View>
-        </View>        
-        <View>      
-        </View>
-      </View>
-      <View style={styles.home_company_list}>
-        <View style={{margin:10,flexDirection: "row",}}>
-        <Image 
-        style={{height: 75, width:80}}
-        source={require('../images/wwu.png')}></Image>
-        <View style={{ paddingLeft:10}}>
-        <Text style={{ fontSize:18,}}>Western Washington University</Text>
-        <Text style={{ fontSize:10,}}>Educational ORG</Text>
-        <Text style={{ fontSize:13, paddingTop:5, width:windowWidth-30-90}}>This is the text for discription what is their fund about, how is it gonna work what ever it is gonna be here</Text>
-        </View>
-        </View>        
-        <View>      
-        </View>
-      </View>
+       ))
+      }
+
+      
     </ScrollView>
      </View>
    );

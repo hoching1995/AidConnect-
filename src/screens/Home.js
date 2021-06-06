@@ -2,10 +2,11 @@ import  React,{Component} from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
 import { StyleSheet, Text, View, Dimensions,Image,Alert, Platform } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
  //import {Gelocation} from '@react-native-community/geolocation'
 //import {PERMISSIONS, request} from 'react-native-permissions'
 
-export default function App() {
+const App = ({navigation}) => {
   // console.log("fix")
   // locationCurrentPostion =()=> { 
   //   Gelocation.getCurrentPosition(
@@ -42,13 +43,13 @@ export default function App() {
 state = {
   markers: [],
   coordinates: [
-    { name: 'Bellingham Food Bank', latitude: 48.75533881391072, longitude: -122.47153346668237,  image: require('../images/logo_bfb.png') },
-    { name: 'Habitat for Humanity in Whatcom County', latitude: 48.755123532054434, longitude: -122.47572655214361, image: require('../images/WhatcomCounty.png') },
-    { name: 'Western Washington University',latitude: 48.734365517589175,longitude: -122.48668540371054,  image: require('../images/wwu.png')  },
-    { name: 'Bellingham Vet Center', latitude: 48.73396954510261, longitude: -122.46544124658645,  image: require('../images/VA.png') },
-    { name: 'BECU credit union',latitude: 48.755328677915685, longitude: -122.47619861903614,    image: require('../images/BECU.png') },
-    { name: 'Young Life-Bellingham', latitude: 48.75099338782577, longitude: -122.48043141000632,  image: require('../images/YL.png') },
-  
+    { name: 'Bellingham Food Bank', type:'Community ORG',latitude: 48.75533881391072, longitude: -122.47153346668237,  image: require('../images/logo_bfb.png') },
+    { name: 'Habitat for Humanity in Whatcom County', type:'Community ORG', latitude: 48.755123532054434, longitude: -122.47572655214361, image: require('../images/WhatcomCounty.png') },
+    { name: 'Western Washington University', type:'Educational ORG', latitude: 48.734365517589175,longitude: -122.48668540371054,  image: require('../images/wwu.png')  },
+    { name: 'Bellingham Vet Center', type:'Gov ORG', latitude: 48.73396954510261, longitude: -122.46544124658645,  image: require('../images/VA.png') },
+    { name: 'BECU credit union',type:'Bank ORG',latitude: 48.755328677915685, longitude: -122.47619861903614,    image: require('../images/BECU.png') },
+    { name: 'Young Life-Bellingham', type:'Community ORG', latitude: 48.75099338782577, longitude: -122.48043141000632,  image: require('../images/YL.png') },
+
   ]
 }
 
@@ -56,7 +57,10 @@ onCarouselItemChange = (index) => {
   let location = state.coordinates[index];
   var latitude = location.latitude;
   var longitude = location.longitude;
-
+  console.log(index);
+  if(index!=undefined){
+    index = index; 
+  }
   _map.animateToRegion({
     latitude: latitude,
     longitude: longitude,
@@ -76,13 +80,19 @@ onMarkerPressed = (location, index) => {
     longitudeDelta: 0.035
   });
 
-  this._carousel.snapToItem(index);
+  _carousel.snapToItem(index);
 }
 renderCarouselItem = ({ item }) =>
-    <View style={styles.cardContainer}>
+<View>
+  <TouchableOpacity onPress={() =>
+  navigation.navigate("Project",{item})
+  }>
+    <View style={styles.cardContainer}>  
       <Text style={styles.cardTitle}>{item.name}</Text>
       <Image style={styles.cardImage} source={item.image} />
     </View>
+  </TouchableOpacity>
+</View>
     
   return (
     <View style={styles.container}>
@@ -116,6 +126,8 @@ renderCarouselItem = ({ item }) =>
    
 
     </MapView>
+  
+  
     <Carousel
           ref={(c) => { _carousel = c; }}
           data={state.coordinates}
@@ -188,3 +200,4 @@ const styles = StyleSheet.create({
   // other styles for the inner container
 }
 });
+export default App;

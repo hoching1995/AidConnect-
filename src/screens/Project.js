@@ -7,7 +7,8 @@ import {
 } from "react-native-gesture-handler";
 const windowWidth = Dimensions.get("window").width;
 const windowHight = Dimensions.get("window").height;
-const Project = ({navigation}) => {
+const Project = ({navigation, route}) => {
+
     return(
     <View style={styles.container}>
        <TouchableOpacity onPress={() =>
@@ -17,12 +18,14 @@ const Project = ({navigation}) => {
        </TouchableOpacity>
       <View style={{justifyContent: 'center',
     alignItems: 'center',paddingTop:10, }}>
-        <Text style={{fontSize:20}}>Western Washington University</Text>
+        <Text style={{fontSize:20}}>{route.params.item.name}</Text>
         <Text style={{ fontSize:12}}>Educational ORG</Text>
         <View style={{paddingTop:20}}>
         <Image 
-        style={{height: 100, width:100}}
-        source={require('../images/wwu.png')}></Image>
+        style={{ height: 120,
+          width: 300,   resizeMode:'contain',
+          }}
+        source={route.params.item.image}></Image>
         </View>
         <Text style={{padding:20}}>Western was established as the Northwest Normal School, a teachers' school predominantly for women although men also enrolled, by Phoebe Judson in Lynden, Washington, in 1886.[10] Eventually the school moved to Bellingham (then "New Whatcom"), and through the efforts of William R. Moultray and George Judson (Phoebe's son).[11] Governor John McGraw signed legislation establishing the New Whatcom Normal School on February 24, 1893. In November 1895, construction began on a permanent school building, now known as Old Main, the current administration building. Designed by prominent Seattle architects Warren Skillings & James Corner, it was completed by early 1897 but could not be opened to students until funds could be secured to install heating, lighting, and to do general grounds maintenance, which were not included in the original contract.[12] The first official class entered in 1899, composed of 88 students.
 
@@ -56,8 +59,11 @@ const styles = StyleSheet.create({
  
   image: {
     marginBottom: 40,
-    width:"70%",
-    height:"20%"
+    height: 120,
+    width: 300,
+    bottom: 0,
+    resizeMode:'contain',
+    position: 'absolute',
   },
  
   inputView: {
