@@ -1,5 +1,3 @@
-
-
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
@@ -14,7 +12,7 @@ import {
 
  
 
-const Profile = () => {
+const Profile = ({navigation}) => {
       const [email, setEmail] = useState("");
       const [password, setPassword] = useState("");
      
@@ -45,10 +43,18 @@ const Profile = () => {
           <TouchableOpacity>
             <Text style={styles.forgot_button}>Forgot Password?</Text>
           </TouchableOpacity>
+
      
           <TouchableOpacity style={styles.loginBtn}>
             <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.loginBtn}
+          onPress={() => navigation.navigate('SignUp')}>
+            <Text style={styles.loginText}
+            >SIGNUP</Text>
+          </TouchableOpacity>
+
         </View>
       );
     }

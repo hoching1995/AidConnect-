@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -7,7 +8,11 @@ import Local from '../screens/Local'
 import Setting from '../screens/Profile'
 import Project from '../screens/Project'
 import Apply from '../screens/Apply'
+import SignUp from '../screens/SignUp'
+import SignUp2 from '../screens/SignUp2'
+import SignUp3 from '../screens/SignUp3'
 import {Image} from 'react-native'
+import FulfillRequest from '../screens/FulfillRequest'
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -94,6 +99,10 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="Home" component={BottomTabNavigator}/>
             <Stack.Screen name="Project" component={Project}/>
             <Stack.Screen name="Apply" component={Apply}/>
+            <Stack.Screen name="SignUp" component={SignUp}/>
+            <Stack.Screen name="SignUp2" component={SignUp2}/>
+            <Stack.Screen name="SignUp3" component={SignUp3}/>
+            <Stack.Screen name="AidRequest" component={FulfillRequest} />
         </Stack.Navigator>
     )
 }
