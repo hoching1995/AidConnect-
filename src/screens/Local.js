@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import {View,StyleSheet, TextInput, Image, ScrollView} from 'react-native'
+import {View,StyleSheet, TextInput, Image, ScrollView, Button, TouchableOpacity} from 'react-native'
 import baseURL from '../../assets/common/baseUrl'
 import AidList from '../components/aidList'
 import axios from 'axios'
 
-const Local = (props) => {
+const Local = ({props, navigation}) => {
   const [aidRequests, setAidRequests] = useState([]);
 
   useEffect(
@@ -51,7 +51,18 @@ const Local = (props) => {
             );
           })}
         </View>
+       
       </ScrollView>
+      <TouchableOpacity activeOpacity={0.5} 
+      onPress={() => navigation.navigate('Apply')}>
+        <Image
+        source={require('../images/plus.png')}
+        style={styles.ImageIconStyle}
+        
+        />
+        
+      </TouchableOpacity>
+     
     </View>
   );
 }
@@ -100,5 +111,12 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 20,
   },
+  ImageIconStyle: {
+    height: 60,
+    borderRadius: 10,
+    margin: 5,
+    resizeMode: 'contain',
+  },
+  
 });
 export default Local;
