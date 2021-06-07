@@ -49,6 +49,12 @@ state = {
     { name: 'Bellingham Vet Center', type:'Gov ORG', latitude: 48.73396954510261, longitude: -122.46544124658645,  image: require('../images/VA.png') },
     { name: 'BECU credit union',type:'Bank ORG',latitude: 48.755328677915685, longitude: -122.47619861903614,    image: require('../images/BECU.png') },
     { name: 'Young Life-Bellingham', type:'Community ORG', latitude: 48.75099338782577, longitude: -122.48043141000632,  image: require('../images/YL.png') },
+    { name: 'Camp 210', type:'Housing ORG', latitude: 48.747, longitude: -122.47704312,  image: require('../images/lighthouse.png') },
+    { name: 'LightHouse Missions', type:'Housing ORG', latitude: 48.755060, longitude: -122.487250,  image: require('../images/lighthouse.png') },
+    { name: 'Sea-Mar Community Services ', type:'Community ORG', latitude: 48.801520, longitude: -122.496920,  image: require('../images/seamar.png') },
+    { name: 'Northwest Youth Services', type:'Community ORG', latitude: 48.752310, longitude: -122.480640,  image: require('../images/nwys.png') },
+    { name: 'The Opportunity Council', type:'Community ORG', latitude: 48.767350, longitude: -122.477350,  image: require('../images/oppc.jpeg') },
+    { name: 'Lydia Place', type:'Community ORG', latitude: 48.749080, longitude: -122.468390,  image: require('../images/lydiap.png') }
 
   ]
 }
